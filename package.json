@@ -1,5 +1,5 @@
 {
-  "name": "compress",
+  "name": "compressjs2",
   "version": "1.0.0",
   "description": "compress js file in directory",
   "bin": {
