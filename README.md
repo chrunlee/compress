@@ -9,6 +9,7 @@ compress //压缩当前目录下所有js并替换
 compress -d /home/js //压缩目标目录下js并替换
 compress -d /home/js -o /home/build //压缩目标目录下js并输出到/home/build目录下
 compress -c //美化压缩后的js文件
+compress -l //递归循环调用所有目录，否则只有当前级别
 ```
 
 ### License

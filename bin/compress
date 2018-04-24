@@ -12,9 +12,10 @@ var argv = require("minimist")(process.argv.slice(2), {
     'output' : 'o',
     'beauty' : 'b',
     'top' : 't',
-    'help' : 'h'
+    'help' : 'h',
+    'loop' : 'l'
   },
-  boolean: ['help','beauty'],
+  boolean: ['help','beauty','loop'],
   'default': {
     'directory': process.cwd(),
     'beauty' : false
@@ -29,6 +30,7 @@ if (argv.help) {
   console.log("  compress -o /home/build // compress file output folder".green);
   console.log("  compress -d /home/src // target directory to compress file".green);
   console.log("  compress -b //beauty js files".green);
+  console.log("  compress -l //loop call".green);
   process.exit(0);
 }
 if(!argv.output){
@@ -37,7 +39,8 @@ if(!argv.output){
 var comp = new Compress(argv.directory,{
   output : argv.output,
   minify : !argv.beauty,
-  header : argv.top
+  header : argv.top,
+  deepth : argv.loop
 
 });
 console.log(' uglify js files ...'.red);
