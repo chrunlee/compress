@@ -1,0 +1,31 @@
+{
+  "name": "compress",
+  "version": "1.0.0",
+  "description": "compress js file in directory",
+  "bin": {
+    "compress": "./bin/compress"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrunlee/compress.git"
+  },
+  "keywords": [
+    "compress",
+    "js"
+  ],
+  "author": "chrunlee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrunlee/compress/issues"
+  },
+  "homepage": "https://github.com/chrunlee/compress#readme",
+  "dependencies": {
+    "async": "^2.6.0",
+    "colors": "^1.2.1",
+    "minimist": "^1.2.0",
+    "uglify-js": "^3.3.22"
+  }
+}

@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+var os = require('os');
+var fs = require('fs');
+var path = require('path');
+var colors = require('colors');
+var Compress = require('../lib/Compress');
+
+var argv = require("minimist")(process.argv.slice(2), {
+  alias: {
+    'directory': 'd',
+    'output' : 'o',
+    'beauty' : 'b',
+    'top' : 't',
+    'help' : 'h'
+  },
+  boolean: ['help','beauty'],
+  'default': {
+    'directory': process.cwd(),
+    'beauty' : false
+  }
+});
+
+if (argv.help) {
+  console.log("Usage:".green);
+  console.log("  compress --help // print help information".green);
+  console.log("  compress // minify js file in current folder".green);
+  console.log("  compress -t author // add top header in file".green);
+  console.log("  compress -o /home/build // compress file output folder".green);
+  console.log("  compress -d /home/src // target directory to compress file".green);
+  console.log("  compress -b //beauty js files".green);
+  process.exit(0);
+}
+if(!argv.output){
+  argv.output = argv.directory;
+}
+var comp = new Compress(argv.directory,{
+  output : argv.output,
+  minify : !argv.beauty,
+  header : argv.top
+
+});
+console.log(' uglify js files ...'.red);
+comp.start();
